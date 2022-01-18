@@ -15,7 +15,11 @@
         "target": "http://localhost:3000",
         "secure": false
     },
-    "/api/reset-password": {
+    "/api/users/info": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/api/users/password": {
         "target": "http://localhost:3000",
         "secure": false
     }

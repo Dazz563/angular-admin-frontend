@@ -81,4 +81,30 @@ export class AuthService {
         }
       })
   }
+
+  updateInfo(data) {
+    this.http.put('api/users/info', data)
+      .subscribe({
+        next: (user: UserModel) => {
+          console.log(user);
+
+        },
+        error: (error) => {
+
+        }
+      })
+  }
+
+  updatePassword(data) {
+    this.http.put('api/users/password', data)
+      .subscribe({
+        next: (user: UserModel) => {
+          console.log(user);
+
+        },
+        error: (error) => {
+
+        }
+      })
+  }
 }
