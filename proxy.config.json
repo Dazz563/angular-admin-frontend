@@ -22,5 +22,17 @@
     "/api/users/password": {
         "target": "http://localhost:3000",
         "secure": false
+    },
+    "/api/users": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/api/users/:id": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/api/roles": {
+        "target": "http://localhost:3000",
+        "secure": false
     }
 }

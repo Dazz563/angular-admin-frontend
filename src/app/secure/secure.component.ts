@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, UserModel } from '../services/auth.service';
+import { Auth } from '../emitters/auth';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-secure',
@@ -9,7 +10,6 @@ import { AuthService, UserModel } from '../services/auth.service';
 })
 export class SecureComponent implements OnInit {
 
-  user: UserModel;
 
   constructor(
     private authService: AuthService,
@@ -18,7 +18,7 @@ export class SecureComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.user().subscribe({
-      next: (user) => this.user = user,
+      next: (user) => Auth.userEmitter.emit(user),
       error: (error) => this.router.navigateByUrl('/login')
     });
   }

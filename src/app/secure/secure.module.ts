@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
+import { UsersCreateComponent } from './users/users-create/users-create.component';
 
 
 
@@ -15,7 +17,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MenuComponent,
     SecureComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersComponent,
+    UsersCreateComponent
   ],
   imports: [
     SharedModule,

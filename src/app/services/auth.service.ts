@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Auth } from '../emitters/auth';
 
 export class UserModel {
   id?: string;
@@ -86,7 +87,7 @@ export class AuthService {
     this.http.put('api/users/info', data)
       .subscribe({
         next: (user: UserModel) => {
-          console.log(user);
+          Auth.userEmitter.emit(user);
 
         },
         error: (error) => {

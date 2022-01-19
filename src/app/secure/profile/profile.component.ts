@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Auth } from 'src/app/emitters/auth';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -26,14 +27,18 @@ export class ProfileComponent implements OnInit {
       password: new FormControl(null),
       password_confirm: new FormControl(null),
     });
+
+    Auth.userEmitter.subscribe(user => {
+      this.infoForm.patchValue(user);
+    })
   }
 
   infoSubmit() {
-
+    this.authService.updateInfo(this.infoForm.value);
   }
 
   passwordSubmit() {
-
+    this.authService.updatePassword(this.passwordForm.value);
   }
 
 }

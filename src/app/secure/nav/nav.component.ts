@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Auth } from 'src/app/emitters/auth';
 import { AuthService, UserModel } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,13 +9,16 @@ import { AuthService, UserModel } from 'src/app/services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  @Input('user') user: UserModel;
+  user: UserModel;
 
   constructor(
     private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    Auth.userEmitter.subscribe(user => {
+      this.user = user;
+    })
   }
 
   logout() {
