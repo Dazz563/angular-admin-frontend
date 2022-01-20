@@ -8,6 +8,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { UsersCreateComponent } from './users/users-create/users-create.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { RolesComponent } from './roles/roles.component';
+import { RoleCreateComponent } from './roles/role-create/role-create.component';
 
 
 
@@ -19,7 +22,10 @@ import { UsersCreateComponent } from './users/users-create/users-create.componen
     ProfileComponent,
     DashboardComponent,
     UsersComponent,
-    UsersCreateComponent
+    UsersCreateComponent,
+    UserEditComponent,
+    RolesComponent,
+    RoleCreateComponent
   ],
   imports: [
     SharedModule,

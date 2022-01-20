@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Role, RoleService } from 'src/app/services/role.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,6 +17,7 @@ export class UsersCreateComponent implements OnInit {
   constructor(
     private roleService: RoleService,
     private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -27,13 +29,17 @@ export class UsersCreateComponent implements OnInit {
     });
 
     this.roleService.getRoles().subscribe(roleRes => {
+      console.log('roles: ', roleRes);
       this.roles = roleRes;
-    })
+    });
   }
 
   createUser() {
-    this.userService.createUser(this.form.value);
-    this.form.reset();
+    this.userService.createUser(this.form.value).subscribe(res => {
+      if (res) {
+        this.router.navigateByUrl('/users');
+      }
+    });
   }
 
 }

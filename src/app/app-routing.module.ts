@@ -5,7 +5,10 @@ import { PublicComponent } from './public/public.component';
 import { RegisterComponent } from './public/register/register.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
 import { ProfileComponent } from './secure/profile/profile.component';
+import { RoleCreateComponent } from './secure/roles/role-create/role-create.component';
+import { RolesComponent } from './secure/roles/roles.component';
 import { SecureComponent } from './secure/secure.component';
+import { UserEditComponent } from './secure/users/user-edit/user-edit.component';
 import { UsersCreateComponent } from './secure/users/users-create/users-create.component';
 import { UsersComponent } from './secure/users/users.component';
 
@@ -34,6 +37,18 @@ const routes: Routes = [
       {
         path: 'users/create',
         component: UsersCreateComponent
+      },
+      {
+        path: 'users/:id/edit',
+        component: UserEditComponent
+      },
+      {
+        path: 'roles',
+        component: RolesComponent
+      },
+      {
+        path: 'roles/create',
+        component: RoleCreateComponent
       },
     ]
   },

@@ -1,0 +1,23 @@
+<form [formGroup]="form" (submit)="editUser()">
+    <div class="mb-3">
+        <label>First Name</label>
+        <input formControlName="first_name" type="text" name="first_name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Last Name</label>
+        <input formControlName="last_name" type="text" name="last_name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input formControlName="email" type="text" name="email" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Role</label>
+        <select formControlName="role" name="role_id" class="form-control">
+            <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.name }}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary">Save</button>
+</form>
